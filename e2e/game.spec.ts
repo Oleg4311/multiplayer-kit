@@ -40,6 +40,7 @@ async function startBattle(browser: Browser, baseURL: string | undefined) {
 }
 
 test('морской бой: две вкладки играют партию до победы, чужие корабли в странице не появляются', async ({ browser, baseURL }) => {
+  test.setTimeout(150_000); // по сети с задержкой партия идёт дольше, чем локально
   const { a, b } = await startBattle(browser, baseURL);
   const pages = [a, b];
   const nextCell = [0, 0];
